@@ -1,0 +1,12 @@
+:root {
+  --test-override: red;
+}
+
+div {
+  background: green;
+  color: green;
+}
+
+:root {
+  --test-override: green;
+}
