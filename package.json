@@ -15,6 +15,9 @@
   },
   "license": "MIT",
   "repository": "reworkcss/variables",
+  "dependencies": {
+    "debug": "*"
+  },
   "devDependencies": {
     "mocha": "1"
   },

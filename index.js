@@ -1,10 +1,11 @@
 
+var debug = require('debug')('variables')
+
 module.exports = variables
 
 function variables(string, map) {
   return variables.replace(string, variables.parse(string, map))
 }
-
 
 /**
  * Parse all the declared variables and save it to `map`.
@@ -26,6 +27,8 @@ variables.parse = function (string, map) {
     }
   }
 
+  debug('parsed: %o', map)
+
   return map
 }
 
@@ -45,9 +48,8 @@ variables.replace = function (string, map) {
   if (!map || !Object.keys(map).length) return string
 
   var RE_VARS = variables.compile(map)
-  string = string.replace(RE_VARS, function (match, name) {
-    return map[name] || match
-  })
+  var _prev
+  while (_prev !== string) string = (_prev = string).replace(RE_VARS, replacer)
 
   var RE_FALLBACKS = /\bvar\(--([\w-]+)(?:\s*,\s*)?(.*)?\)/
   var m_fallback
@@ -56,4 +58,8 @@ variables.replace = function (string, map) {
       map[m_fallback[1]] ? m_fallback[1] : m_fallback[2])
 
   return string
+
+  function replacer(match, name) {
+    return map[name] || match
+  }
 }

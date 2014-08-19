@@ -18,6 +18,7 @@ function compare(name) {
   'substitution-defined',
   'substitution-fallback',
   'substitution-overwrite',
+  '1',
 ].forEach(function (testname) {
   it(testname, function () {
     compare(testname)
