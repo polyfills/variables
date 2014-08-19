@@ -14,14 +14,18 @@
     "twitter": "https://twitter.com/jongleberry"
   },
   "license": "MIT",
-  "repository": "reworkcss/variables",
+  "repository": "polyfills/variables",
   "dependencies": {
     "debug": "*"
   },
   "devDependencies": {
+    "istanbul": "0",
     "mocha": "1"
   },
   "scripts": {
-    "test": "mocha --reporter spec --bail"
-  }
+    "test": "mocha --reporter spec",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+  },
+  "files": ["index.js"]
 }
