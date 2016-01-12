@@ -19,7 +19,7 @@
     "debug": "*"
   },
   "devDependencies": {
-    "istanbul": "0",
+    "istanbul": "0.4.2",
     "mocha": "1"
   },
   "scripts": {
