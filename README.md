@@ -28,7 +28,7 @@ var variables = require('variables')
 
 Do CSS variables magic.
 
-### map = variables.parse([map])
+### map = variables.parse(css)
 
 Parse CSS variables on `:root`,
 storing the variable values in `map`.
